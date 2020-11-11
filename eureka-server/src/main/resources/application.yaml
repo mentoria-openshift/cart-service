@@ -1,0 +1,17 @@
+# Propriedades da aplicação
+spring:
+  main.banner-mode: off
+  profiles:
+    active: local,container
+
+server:
+  port: 8090
+
+logging:
+  level:
+    org.springframework: INFO
+
+# Propriedades do Eureka
+eureka:
+  client:
+    register-with-eureka: false
