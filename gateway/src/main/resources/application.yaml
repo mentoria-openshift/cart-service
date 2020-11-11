@@ -1,0 +1,5 @@
+# Propriedades da aplicação
+spring:
+  main.banner-mode: off
+  profiles:
+    active: local,container
