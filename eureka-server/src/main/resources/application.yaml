@@ -2,10 +2,10 @@
 spring:
   main.banner-mode: off
   profiles:
-    active: local,container
+    active: local
 
 server:
-  port: 8090
+  port: 8761
 
 logging:
   level:
