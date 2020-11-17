@@ -9,11 +9,9 @@ import javax.persistence.Convert;
 import es.thalesalv.sigla.cartservice.application.bean.MonetaryAmountConverter;
 import lombok.Builder;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-@EqualsAndHashCode(callSuper = false)
 public class Cart {
 
     private Integer id;

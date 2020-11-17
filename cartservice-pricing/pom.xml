@@ -10,7 +10,7 @@
 	<groupId>es.thalesalv.sigla</groupId>
 	<artifactId>cartservice-pricing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cartservice-pricing</name>
+	<name>cart-service-pricing</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

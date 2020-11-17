@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Builder
-@EqualsAndHashCode(callSuper = false)
+@EqualsAndHashCode(exclude = "price")
 public class LineItem {
 
     private Integer id;

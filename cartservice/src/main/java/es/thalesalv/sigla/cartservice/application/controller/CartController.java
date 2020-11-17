@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 import es.thalesalv.sigla.cartservice.adapter.entity.CartEntity;
 import es.thalesalv.sigla.cartservice.adapter.mapper.Translator;
 import es.thalesalv.sigla.cartservice.adapter.repository.CartRepository;
+import es.thalesalv.sigla.cartservice.application.service.PricingService;
 import es.thalesalv.sigla.cartservice.domain.extension.CartNotFoundException;
 import es.thalesalv.sigla.cartservice.domain.model.Cart;
 import lombok.RequiredArgsConstructor;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,6 +25,7 @@ public class CartController {
     private final Translator<Cart, CartEntity> entityToDtoTranslator;
     private final Translator<CartEntity, Cart> dtoToEntityTranslator;
     private final CartRepository repository;
+    private final PricingService pricingService;
 
     @GetMapping("/cart/{id}")
     public Cart getCart(@PathVariable Integer id) {
@@ -34,10 +37,12 @@ public class CartController {
     }
 
     @PostMapping("/cart")
-    public Cart saveCart(@RequestBody Cart cart) {
+    public Mono<Cart> saveCart(@RequestBody Cart cart) {
 
-        CartEntity entity = repository.save(dtoToEntityTranslator.translate(cart));
-        return entityToDtoTranslator.translate(entity);
+        return pricingService.price(cart).map(cartResponse -> {
+            CartEntity entity = repository.save(dtoToEntityTranslator.translate(cartResponse));
+            return entityToDtoTranslator.translate(entity);
+        });
     }
 
     @GetMapping("/carts")

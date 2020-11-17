@@ -8,11 +8,15 @@ public class CartNotFoundException extends RuntimeException {
 
     private static final long serialVersionUID = -1308320049246401064L;
 
-    public CartNotFoundException(String message) {
-        super(message);
+    public CartNotFoundException(Exception e) {
+        super(e);
     }
 
     public CartNotFoundException(String message, Throwable t) {
         super(message, t);
+    }
+
+    public CartNotFoundException(String message) {
+        super(message);
     }
 }
