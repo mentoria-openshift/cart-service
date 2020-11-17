@@ -24,8 +24,10 @@ public class CartController {
     @GetMapping("/cart/{id}")
     public Cart getCart(@PathVariable Integer id) {
 
-        return entityToDtoTranslator.translate(
-                repository.findById(id).orElseThrow(() -> new CartNotFoundException("Cart not found: " + id)));
+        CartEntity entity = repository.findById(id)
+                .orElseThrow(() -> new CartNotFoundException("Cart not found: " + id));
+                
+        return entityToDtoTranslator.translate(entity);
     }
 
     @PostMapping("/cart")

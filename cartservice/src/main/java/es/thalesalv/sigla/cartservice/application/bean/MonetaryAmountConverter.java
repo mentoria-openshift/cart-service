@@ -7,9 +7,6 @@ import javax.money.Monetary;
 import javax.money.MonetaryAmount;
 import javax.persistence.AttributeConverter;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class MonetaryAmountConverter implements AttributeConverter<MonetaryAmount, BigDecimal> {
 
     private final CurrencyUnit brl = Monetary.getCurrency("BRL");

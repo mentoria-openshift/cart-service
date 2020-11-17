@@ -13,12 +13,16 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import es.thalesalv.sigla.cartservice.application.bean.MonetaryAmountConverter;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class CartEntity {
 
     @Id
