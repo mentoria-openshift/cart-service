@@ -7,11 +7,11 @@
 		<version>2.3.6.RELEASE</version>
 		<relativePath />
 	</parent>
-	<groupId>es.thalesalv.sigla</groupId>
-	<artifactId>cartservice-pricing</artifactId>
+	<groupId>es.thalesalv.cartservice</groupId>
+	<artifactId>pricing</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cart-service-pricing</name>
-	<description>Demo project for Spring Boot</description>
+	<name>pricing</name>
+	<description>Pricing service</description>
 
 	<properties>
 		<java.version>11</java.version>

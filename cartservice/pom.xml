@@ -7,11 +7,11 @@
 		<version>2.3.6.RELEASE</version>
 		<relativePath />
 	</parent>
-	<groupId>es.thalesalv.sigla</groupId>
-	<artifactId>cartservice</artifactId>
+	<groupId>es.thalesalv.cartservice</groupId>
+	<artifactId>cart</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cart-service</name>
-	<description>Projeto de teste para autenticação com Spring Cloud e Okta</description>
+	<name>cart</name>
+	<description>Cart service</description>
 
 	<properties>
 		<java.version>11</java.version>

@@ -7,11 +7,11 @@
 		<version>2.3.5.RELEASE</version>
 		<relativePath />
 	</parent>
-	<groupId>es.thalesalv.sigla</groupId>
+	<groupId>es.thalesalv.cartservice</groupId>
 	<artifactId>gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sigla-gateway</name>
-	<description>API Gateway e roteador do SiGLa</description>
+	<name>gateway</name>
+	<description>API Gateway e roteador</description>
 
 	<properties>
 		<java.version>11</java.version>

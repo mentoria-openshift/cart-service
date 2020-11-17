@@ -7,11 +7,11 @@
 		<version>2.3.5.RELEASE</version>
 		<relativePath />
 	</parent>
-	<groupId>es.thalesalv.sigla</groupId>
+	<groupId>es.thalesalv.cartservice</groupId>
 	<artifactId>eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>sigla-eureka-server</name>
-	<description>Servidor de descoberta de serviços do SiGLa</description>
+	<name>eureka-server</name>
+	<description>Servidor de descoberta de serviços</description>
 
 	<properties>
 		<java.version>11</java.version>
