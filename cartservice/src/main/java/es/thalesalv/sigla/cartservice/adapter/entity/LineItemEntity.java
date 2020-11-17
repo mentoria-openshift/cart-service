@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
 public class LineItemEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     
     @Convert(converter = MonetaryAmountConverter.class)

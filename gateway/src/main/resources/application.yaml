@@ -7,9 +7,30 @@ spring:
     name: sigla-gateway
   cloud:
     gateway:
+      httpclient:
+        connect-timeout: 2000
+        response-timeout: 2000
       discovery:
         locator:
           enabled: true
+      routes:
+      - id: "cart"
+        uri: lb://cart
+        predicates:
+        - Path=/cart/**, /carts
+        filters:
+          - name: Hystrix
+            args:
+              name: cartsFallback
+              fallbackUri: forward:/carts-fallback"
+        metadata:
+          response-timeout: 2000
+          connect-timeout: 2000
+
+hystrix:
+  command:
+    cartsFallback:
+      execution.isolation.thread.timeoutInMilliseconds: 2000
 
 server:
   port: 8080

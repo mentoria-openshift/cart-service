@@ -1,5 +1,8 @@
 package es.thalesalv.sigla.cartservice.application.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,5 +38,18 @@ public class CartController {
 
         CartEntity entity = repository.save(dtoToEntityTranslator.translate(cart));
         return entityToDtoTranslator.translate(entity);
+    }
+
+    @GetMapping("/carts")
+    public List<Cart> getCarts() {
+
+        List<Cart> carts = new ArrayList<>();
+        Iterable<CartEntity> entity = repository.findAll();
+        entity.forEach(cartEntity -> {
+            Cart cart = entityToDtoTranslator.translate(cartEntity);
+            carts.add(cart);
+        });
+
+        return carts;
     }
 }

@@ -27,6 +27,7 @@ public class CartDTOToEntityTranslator implements Translator<CartEntity, Cart> {
         });
 
         return CartEntity.builder()
+                .id(input.getId())
                 .customerId(input.getCustomerId())
                 .lineItems(lineItems)
                 .total(input.getTotal())
