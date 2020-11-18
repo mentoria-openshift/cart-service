@@ -4,7 +4,7 @@ spring:
   profiles:
     active: local
   application:
-    name: sigla-gateway
+    name: gateway
   cloud:
     gateway:
       httpclient:
