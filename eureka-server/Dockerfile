@@ -17,7 +17,7 @@ RUN yum update -y && \
     yum install -y wget tar java-11-openjdk-devel java-11-openjdk git && \
     wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
     tar xvzf apache-maven-3.6.3-bin.tar.gz && \
-    chmod -R +x $MAVEN_HOME/binaries
+    chmod -R +x $MAVEN_HOME/bin
 
 WORKDIR /opt/app
 
