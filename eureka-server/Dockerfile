@@ -3,6 +3,7 @@ FROM docker.io/openjdk:11.0.9.1-jre-buster
 LABEL maintainer="Thales Alves <thales@thalesalv.es>"
 
 RUN apt update -y && apt upgrade -y && \
+    apt install -y git && \
     git clone ${EUREKA_SERVER_REPO} /opt/app
 
 WORKDIR /opt/app
