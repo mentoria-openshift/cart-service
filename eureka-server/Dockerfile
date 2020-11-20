@@ -8,7 +8,7 @@ LABEL maintainer="Thales Alves <thales@thalesalv.es>" \
 
 ENV JAVA_HOME="/opt/openjdk11" \
     MAVEN_HOME="/opt/maven" \
-    PATH="$PATH:$MAVEN_HOME/bin"
+    PATH="$PATH:$MAVEN_HOME/bin:$JAVA_HOME/bin"
 
 COPY [ "entrypoint.sh", "/opt/app/" ]
 
