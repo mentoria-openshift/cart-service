@@ -40,3 +40,10 @@ logging:
     org.springframework: INFO
     org.springframework.cloud.gateway: INFO
     reactor.netty: INFO
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    preferIpAddress: false
