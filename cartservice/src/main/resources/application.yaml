@@ -7,7 +7,6 @@ spring:
     active: local
   application:
     name: cart
-
   security:
     oauth2:
       resourceserver:
@@ -29,7 +28,9 @@ spring:
       ribbon:
         enabled: false
 
-# okta:
-#   oauth2:
-#     issuer: ${OKTA_OAUTH2_ISSUER}
-#     audience: api://default
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-server:8761/eureka/
+  instance:
+    preferIpAddress: false
