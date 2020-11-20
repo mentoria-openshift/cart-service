@@ -6,18 +6,21 @@ LABEL maintainer="Thales Alves <thales@thalesalv.es>" \
     io.openshift.expose-services="8761:8761" \
     openshift.io/display-name="Eureka Server"
 
-ENV JAVA_HOME="/usr/lib/jvm/java-11-openjdk-11.0.8.10-0.el8_2.x86_64" \
-    MAVEN_HOME="/opt/apache-maven-3.6.3" \
+ENV JAVA_HOME="/opt/openjdk11" \
+    MAVEN_HOME="/opt/maven" \
     PATH="$PATH:$MAVEN_HOME/bin"
 
 WORKDIR /opt
 
 RUN yum update -y && \
-    yum upgrade -y && \
-    yum install -y wget tar java-11-openjdk-devel java-11-openjdk git && \
+    yum install -y wget tar git && \
+    wget https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz && \
     wget https://downloads.apache.org/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz && \
+    tar xvzf openjdk-11.0.2_linux-x64_bin.tar.gz && \
     tar xvzf apache-maven-3.6.3-bin.tar.gz && \
-    chmod -R +x $MAVEN_HOME/bin
+    mv apache-maven-3.6.3 /opt/maven && \
+    mv jdk-11.0.2 /opt/openjdk11 && \
+    chmod -R +x $MAVEN_HOME/bin $JAVA_HOME/bin
 
 WORKDIR /opt/app
 
@@ -27,7 +30,7 @@ RUN git init . && \
     echo 'eureka-server' >> .git/info/sparse-checkout && \
     git pull origin master && \
     $MAVEN_HOME/bin/mvn clean install -f /opt/app/eureka-server && \
-    chown -R 0 /opt/app && \
+    chown -R 1001:0 /opt/app && \
     chmod -R g=u /opt/app
 
 EXPOSE 8761
