@@ -1,4 +1,4 @@
 #!/bin/bash
 
-echo "Iniciando aplicação,,,"
-java -jar /opt/app/eureka-server/eureka-server-0.0.1-SNAPSHOT.jar
+echo "Iniciando aplicação..."
+$JAVA_HOME/bin/java -jar /opt/app/eureka-server/target/eureka-server-0.0.1-SNAPSHOT.jar
