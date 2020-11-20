@@ -10,6 +10,8 @@ ENV JAVA_HOME="/opt/openjdk11" \
     MAVEN_HOME="/opt/maven" \
     PATH="$PATH:$MAVEN_HOME/bin"
 
+COPY [ "entrypoint.sh", "/opt/app/" ]
+
 WORKDIR /opt
 
 RUN yum update -y && \
